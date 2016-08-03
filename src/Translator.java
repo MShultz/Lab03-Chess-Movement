@@ -93,26 +93,14 @@ public class Translator {
 			writer.writeToFile(format.formatMovement(movements.get(0), true));
 			board.writeBoard();
 		} else {
-			Position pos1 = new Position(handler.getInitialRank(movements.get(0), true),
-					handler.getInitialFile(movements.get(0), true));
-			Position pos2 = new Position(handler.getSecondaryRank(movements.get(0)),
-					handler.getSecondaryFile(movements.get(0)));
-			String s = format.formatInvalidMovement(board, pos1, pos2, true, movements.get(0),
-					handler.getPieceChar(movements.get(0), true));
-			writer.writeToFile(s);
+			writeFirstMovementError(movements.get(0));
 		}
 		boolean movement2Valid = board.movePiece(movements.get(1), false);
 		if (movement2Valid) {
 			writer.writeToFile(format.formatMovement(movements.get(1), false));
 			board.writeBoard();
 		} else {
-			Position pos1 = new Position(handler.getInitialRank(movements.get(1), true),
-					handler.getInitialFile(movements.get(1), true));
-			Position pos2 = new Position(handler.getSecondaryRank(movements.get(1)),
-					handler.getSecondaryFile(movements.get(1)));
-			String s = format.formatInvalidMovement(board, pos1, pos2, false, movements.get(1),
-					handler.getPieceChar(movements.get(1), false));
-			writer.writeToFile(s);
+			writeSecondMovementError(movements.get(1));
 		}
 	}
 
@@ -126,15 +114,13 @@ public class Translator {
 							board.castle(true, lineAction.get(0));
 							writer.writeToFile(format.formatCastle(lineAction.get(0), true));
 						} else {
-							writer.writeToFile("Error with movement. Invalid game. Asserting False");
-							throw new Exception();
+							writer.writeToFile("This castle is impossible at this time.");
 						}
 					} else {
 						if (board.movePiece(lineAction.get(0), true)) {
 							writer.writeToFile(format.formatMovement(lineAction.get(0), true));
 						} else {
-							writer.writeToFile("Error with movement. Invalid game. Asserting False");
-							throw new Exception();
+							writeFirstMovementError(lineAction.get(0));
 						}
 					}
 					if (finder.isCastle(lineAction.get(1))) {
@@ -142,24 +128,28 @@ public class Translator {
 							board.castle(false, lineAction.get(1));
 							writer.writeToFile(format.formatCastle(lineAction.get(1), false));
 						} else {
-							writer.writeToFile("Error with movement. Invalid game. Asserting False");
-							throw new Exception();
+							writer.writeToFile("This castle is impossible at this time.");
 						}
 					} else {
 						if (board.movePiece(lineAction.get(1), false)) {
 							writer.writeToFile(format.formatMovement(lineAction.get(1), false));
+						} else {
+							writeSecondMovementError(lineAction.get(1));
 						}
 					}
 				}
 			} else {
-				if (board.isValidCastle(lineAction.get(0), true) && board.isValidCastle(lineAction.get(1), false)) {
+				if (board.isValidCastle(lineAction.get(0), true)) {
 					board.castle(true, lineAction.get(0));
 					writer.writeToFile(format.formatCastle(lineAction.get(0), true));
+				} else {
+					writer.writeToFile("This castle is impossible at this time.");
+				}
+				if (board.isValidCastle(lineAction.get(1), false)) {
 					board.castle(false, lineAction.get(1));
 					writer.writeToFile(format.formatCastle(lineAction.get(1), false));
 				} else {
-					writer.writeToFile("Error with movement. Invalid game. Asserting False");
-					throw new Exception();
+					writer.writeToFile("This castle is impossible at this time.");
 				}
 			}
 		} else {
@@ -177,6 +167,22 @@ public class Translator {
 			e.printStackTrace();
 		}
 
+	}
+
+	private void writeFirstMovementError(String movement) {
+		Position pos1 = new Position(handler.getInitialRank(movement, true), handler.getInitialFile(movement, true));
+		Position pos2 = new Position(handler.getSecondaryRank(movement), handler.getSecondaryFile(movement));
+		String s = format.formatInvalidMovement(board, pos1, pos2, true, movement,
+				handler.getPieceChar(movement, true));
+		writer.writeToFile(s);
+	}
+
+	private void writeSecondMovementError(String movement) {
+		Position pos1 = new Position(handler.getInitialRank(movement, true), handler.getInitialFile(movement, true));
+		Position pos2 = new Position(handler.getSecondaryRank(movement), handler.getSecondaryFile(movement));
+		String s = format.formatInvalidMovement(board, pos1, pos2, false, movement,
+				handler.getPieceChar(movement, false));
+		writer.writeToFile(s);
 	}
 
 }

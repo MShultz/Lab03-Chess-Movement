@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Board {
 	private final static int BOARD_SIZE = 8;
@@ -28,24 +29,28 @@ public class Board {
 
 		if (board[position1.getRank()][position1.getFile()] != null) {
 			if (isValid(position1, position2, isWhite, placement, piece)) {
+				Piece p = getPiece(position1);
+				if(isValidPieceMovement(handler.isCapture(placement), p, position2)){
 				board[position1.getRank()][position1.getFile()] = null;
-				Piece p = handler.getPiece(piece, position2, isWhite);
 				p.setHasMoved();
+				p.setCurrentPosition(position2);
 				board[position2.getRank()][position2.getFile()] = p;
 				sucessfulMove = true;
-				
+				}
 			}
 		}
 		return sucessfulMove;
 	}
-	public void castle(boolean isWhite, String castle){
+
+	public void castle(boolean isWhite, String castle) {
 		boolean isKingSide = handler.isKingSide(castle);
 		Rook rook = getRook(isWhite, isKingSide);
 		King king = getKing(isWhite);
 		moveKingForCastle(king, isWhite, isKingSide);
 		moveRookForCastle(rook, isWhite, isKingSide);
-		
+
 	}
+
 	public boolean isValidCastle(String castle, boolean isWhite) {
 		boolean valid = false;
 		boolean isKingSide = handler.isKingSide(castle);
@@ -98,7 +103,7 @@ public class Board {
 		boolean valid = (isCorrectPiece(piece, position1, isWhiteTurn));
 		if (isOccupied(position2) && valid) {
 			valid = (isCapture(placement) && !isPlayerPiece(isWhiteTurn, position2));
-		} else if (!isOccupied(position2) &&  !isCapture(placement) && valid) {
+		} else if (!isOccupied(position2) && !isCapture(placement) && valid) {
 			valid = true;
 		} else {
 			valid = false;
@@ -121,31 +126,32 @@ public class Board {
 	private Position getRookPosition(boolean isWhite, boolean isKingSide) {
 		Position rookPos;
 		if (isWhite) {
-			rookPos = (isKingSide ? new Position(1, 8) : new Position(1, 1));
+			rookPos = (isKingSide ? new Position(0, 7) : new Position(0, 0));
 		} else {
-			rookPos = (isKingSide ? new Position(8, 8) : new Position(8, 1));
+			rookPos = (isKingSide ? new Position(7, 7) : new Position(7, 0));
 		}
 		return rookPos;
 	}
 
 	private Position getKingPosition(boolean isWhite) {
-		return (isWhite ? new Position(1,5) : new Position(8, 5));
+		return (isWhite ? new Position(0, 4) : new Position(7, 4));
 	}
+
 	private Rook getRook(boolean isWhite, boolean isKingSide) {
 		Position rookPos;
 		if (isWhite) {
-			rookPos = (isKingSide ? new Position(1, 8) : new Position(1, 1));
+			rookPos = (isKingSide ? new Position(0, 7) : new Position(0, 0));
 		} else {
-			rookPos = (isKingSide ? new Position(8, 8) : new Position(8, 1));
+			rookPos = (isKingSide ? new Position(7, 7) : new Position(7, 0));
 		}
-		Rook rook = (Rook)board[rookPos.getRank()][rookPos.getFile()];
+		Rook rook = (Rook) board[rookPos.getRank()][rookPos.getFile()];
 		board[rookPos.getRank()][rookPos.getFile()] = null;
 		return rook;
 	}
 
 	private King getKing(boolean isWhite) {
-		Position kingPos = (isWhite ? new Position(1,5) : new Position(8, 5));
-		King king = (King)board[kingPos.getRank()][kingPos.getFile()];
+		Position kingPos = (isWhite ? new Position(0, 4) : new Position(7, 4));
+		King king = (King) board[kingPos.getRank()][kingPos.getFile()];
 		board[kingPos.getRank()][kingPos.getFile()] = null;
 		return king;
 	}
@@ -167,22 +173,33 @@ public class Board {
 		}
 		return occupied;
 	}
-	private void moveKingForCastle(King king, boolean isWhite, boolean isKingSide){
-		Position newKing = (isKingSide? king.getKingSide():king.getQueenSide());
+
+	private void moveKingForCastle(King king, boolean isWhite, boolean isKingSide) {
+		Position newKing = (isKingSide ? king.getKingSide() : king.getQueenSide());
 		king.setCurrentPosition(newKing);
 		king.setHasMoved();
 		board[newKing.getRank()][newKing.getFile()] = king;
 	}
-	private void moveRookForCastle(Rook rook, boolean isWhite, boolean isKingSide){
-		Position newRook = (isKingSide?rook.getKingSide():rook.getQueenSide());
+
+	private void moveRookForCastle(Rook rook, boolean isWhite, boolean isKingSide) {
+		Position newRook = (isKingSide ? rook.getKingSide() : rook.getQueenSide());
 		rook.setCurrentPosition(newRook);
 		rook.setHasMoved();
 		board[newRook.getRank()][newRook.getFile()] = rook;
 	}
-	
-	public Piece getPiece(Position p){
+
+	public Piece getPiece(Position p) {
 		return board[p.getRank()][p.getFile()];
 	}
 
-	
+	private boolean isValidPieceMovement(boolean isCapture, Piece p, Position p2) {
+		ArrayList<Position> possiblePositions = p.getMovement(board, isCapture);
+		boolean found = false;
+		for (Position pos : possiblePositions) {
+			if (pos.equals(p2)) {
+				found = true;
+			}
+		}
+		return found;
+	}
 }

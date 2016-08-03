@@ -42,7 +42,7 @@ public class DirectiveHandler {
 		} else {
 			rank += directive.charAt(pawnLoc + 1);
 		}
-		return Integer.parseInt(rank);
+		return Integer.parseInt(rank) - 1;
 	}
 
 	public int getSecondaryRank(String directive) {
@@ -54,7 +54,7 @@ public class DirectiveHandler {
 		} else {
 			rank += directive.charAt(pawnLoc + 1);
 		}
-		return Integer.parseInt(rank);
+		return Integer.parseInt(rank) -1;
 	}
 
 	public int getInitialFile(String directive, boolean isMovement) {
@@ -68,7 +68,7 @@ public class DirectiveHandler {
 		} else {
 			file = directive.charAt(pawnLoc + 1);
 		}
-		return Character.getNumericValue(file - CHAR_CONVERT_NUM);
+		return Character.getNumericValue(file - CHAR_CONVERT_NUM)-1;
 	}
 
 	public int getSecondaryFile(String directive) {
@@ -80,7 +80,7 @@ public class DirectiveHandler {
 		} else {
 			file = directive.charAt(pawnLoc + 1);
 		}
-		return Character.getNumericValue(file - CHAR_CONVERT_NUM);
+		return Character.getNumericValue(file - CHAR_CONVERT_NUM)-1;
 	}
 
 	public boolean isCapture(String directive) {

@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public abstract class Piece {
 	private boolean hasMoved;
@@ -34,4 +35,5 @@ public abstract class Piece {
 		return "" + (isWhite? type.getWhiteType(): type.getBlackType());
 	}
 	
+	public abstract ArrayList<Position> getMovement(Piece[][] board, boolean isCapture);	
 }

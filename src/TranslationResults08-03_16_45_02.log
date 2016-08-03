@@ -1,4 +1,4 @@
-Process: Sucessfully opened file [src/lab01.b.chess]
+Process: Sucessfully opened file [src/lab03.chess]
 Process: Files Initialized.
 Placement: Adding [Rla1] White Rook was placed at a1.
 Placement: Adding [Nlb1] White Knight was placed at b1.
@@ -32,144 +32,155 @@ Placement: Adding [Pde7] Black Pawn was placed at e7.
 Placement: Adding [Pdf7] Black Pawn was placed at f7.
 Placement: Adding [Pdg7] Black Pawn was placed at g7.
 Placement: Adding [Pdh7] Black Pawn was placed at h7.
-Movement: [f2-f4] White moves Pawn at f2 to f4.
+Movement: [a2-a4] White moves Pawn at a2 to a4.
 8|r|n|b|q|k|b|n|r|
 7|p|p|p|p|p|p|p|p|
 6| | | | | | | | |
 5| | | | | | | | |
-4| | | | | |P| | |
+4|P| | | | | | | |
 3| | | | | | | | |
-2|P|P|P|P|P| |P|P|
+2| |P|P|P|P|P|P|P|
 1|R|N|B|Q|K|B|N|R|
   A B C D E F G H 
-Movement: [e7-e5] Black moves Pawn at e7 to e5.
+Movement: [e7-e6] Black moves Pawn at e7 to e6.
+8|r|n|b|q|k|b|n|r|
+7|p|p|p|p| |p|p|p|
+6| | | | |p| | | |
+5| | | | | | | | |
+4|P| | | | | | | |
+3| | | | | | | | |
+2| |P|P|P|P|P|P|P|
+1|R|N|B|Q|K|B|N|R|
+  A B C D E F G H 
+Movement: [d2-d4] White moves Pawn at d2 to d4.
+8|r|n|b|q|k|b|n|r|
+7|p|p|p|p| |p|p|p|
+6| | | | |p| | | |
+5| | | | | | | | |
+4|P| | |P| | | | |
+3| | | | | | | | |
+2| |P|P| |P|P|P|P|
+1|R|N|B|Q|K|B|N|R|
+  A B C D E F G H 
+Movement: [e6-e5] Black moves Pawn at e6 to e5.
 8|r|n|b|q|k|b|n|r|
 7|p|p|p|p| |p|p|p|
 6| | | | | | | | |
 5| | | | |p| | | |
-4| | | | | |P| | |
+4|P| | |P| | | | |
 3| | | | | | | | |
-2|P|P|P|P|P| |P|P|
+2| |P|P| |P|P|P|P|
 1|R|N|B|Q|K|B|N|R|
   A B C D E F G H 
-Movement: [f4xe5] White moves Pawn at f4 to e5. They capture a piece. 
+Movement: [d4xe5] White moves Pawn at d4 to e5. They capture a piece. 
 8|r|n|b|q|k|b|n|r|
 7|p|p|p|p| |p|p|p|
 6| | | | | | | | |
 5| | | | |P| | | |
-4| | | | | | | | |
+4|P| | | | | | | |
 3| | | | | | | | |
-2|P|P|P|P|P| |P|P|
+2| |P|P| |P|P|P|P|
 1|R|N|B|Q|K|B|N|R|
   A B C D E F G H 
-Movement: [d7-d6] Black moves Pawn at d7 to d6.
-8|r|n|b|q|k|b|n|r|
-7|p|p|p| | |p|p|p|
-6| | | |p| | | | |
+Movement: [Bf8-a3] Black moves Bishop at f8 to a3.
+8|r|n|b|q|k| |n|r|
+7|p|p|p|p| |p|p|p|
+6| | | | | | | | |
 5| | | | |P| | | |
-4| | | | | | | | |
-3| | | | | | | | |
-2|P|P|P|P|P| |P|P|
+4|P| | | | | | | |
+3|b| | | | | | | |
+2| |P|P| |P|P|P|P|
 1|R|N|B|Q|K|B|N|R|
   A B C D E F G H 
-Movement: [e5xd6] White moves Pawn at e5 to d6. They capture a piece. 
-8|r|n|b|q|k|b|n|r|
-7|p|p|p| | |p|p|p|
-6| | | |P| | | | |
-5| | | | | | | | |
-4| | | | | | | | |
-3| | | | | | | | |
-2|P|P|P|P|P| |P|P|
-1|R|N|B|Q|K|B|N|R|
-  A B C D E F G H 
-Movement: [Bf8xd6] Black moves Bishop at f8 to d6. They capture a piece. 
+Movement: [a4-a5] White moves Pawn at a4 to a5.
 8|r|n|b|q|k| |n|r|
-7|p|p|p| | |p|p|p|
-6| | | |b| | | | |
-5| | | | | | | | |
+7|p|p|p|p| |p|p|p|
+6| | | | | | | | |
+5|P| | | |P| | | |
 4| | | | | | | | |
-3| | | | | | | | |
-2|P|P|P|P|P| |P|P|
+3|b| | | | | | | |
+2| |P|P| |P|P|P|P|
 1|R|N|B|Q|K|B|N|R|
   A B C D E F G H 
-Movement: [g2-g3] White moves Pawn at g2 to g3.
-8|r|n|b|q|k| |n|r|
-7|p|p|p| | |p|p|p|
-6| | | |b| | | | |
-5| | | | | | | | |
+Movement: [Ke8-e7] Black moves King at e8 to e7.
+8|r|n|b|q| | |n|r|
+7|p|p|p|p|k|p|p|p|
+6| | | | | | | | |
+5|P| | | |P| | | |
 4| | | | | | | | |
-3| | | | | | |P| |
-2|P|P|P|P|P| | |P|
+3|b| | | | | | | |
+2| |P|P| |P|P|P|P|
 1|R|N|B|Q|K|B|N|R|
   A B C D E F G H 
-Movement: [Qd8-g5] Black moves Queen at d8 to g5.
-8|r|n|b| |k| |n|r|
-7|p|p|p| | |p|p|p|
-6| | | |b| | | | |
-5| | | | | | |q| |
-4| | | | | | | | |
-3| | | | | | |P| |
-2|P|P|P|P|P| | |P|
-1|R|N|B|Q|K|B|N|R|
-  A B C D E F G H 
-Movement: [Ng1-f3] White moves Knight at g1 to f3.
-8|r|n|b| |k| |n|r|
-7|p|p|p| | |p|p|p|
-6| | | |b| | | | |
-5| | | | | | |q| |
-4| | | | | | | | |
-3| | | | | |N|P| |
-2|P|P|P|P|P| | |P|
-1|R|N|B|Q|K|B| |R|
-  A B C D E F G H 
-Movement: [Qg5xg3+] Black moves Queen at g5 to g3. They capture a piece.  Check!
-8|r|n|b| |k| |n|r|
-7|p|p|p| | |p|p|p|
-6| | | |b| | | | |
-5| | | | | | | | |
-4| | | | | | | | |
-3| | | | | |N|q| |
-2|P|P|P|P|P| | |P|
-1|R|N|B|Q|K|B| |R|
-  A B C D E F G H 
-Movement: [h2xg3] White moves Pawn at h2 to g3. They capture a piece. 
-8|r|n|b| |k| |n|r|
-7|p|p|p| | |p|p|p|
-6| | | |b| | | | |
-5| | | | | | | | |
-4| | | | | | | | |
-3| | | | | |N|P| |
-2|P|P|P|P|P| | | |
-1|R|N|B|Q|K|B| |R|
-  A B C D E F G H 
-Movement: [Bd6xg3#] Black moves Bishop at d6 to g3. They capture a piece.  Checkmate!
-8|r|n|b| |k| |n|r|
-7|p|p|p| | |p|p|p|
+Movement: [Qd1xd7] White moves Queen at d1 to d7. They capture a piece. 
+8|r|n|b|q| | |n|r|
+7|p|p|p|Q|k|p|p|p|
 6| | | | | | | | |
-5| | | | | | | | |
+5|P| | | |P| | | |
 4| | | | | | | | |
-3| | | | | |N|b| |
-2|P|P|P|P|P| | | |
-1|R|N|B|Q|K|B| |R|
+3|b| | | | | | | |
+2| |P|P| |P|P|P|P|
+1|R|N|B| |K|B|N|R|
   A B C D E F G H 
-Movement: [a2-a3] White moves Pawn at a2 to a3.
-8|r|n|b| |k| |n|r|
-7|p|p|p| | |p|p|p|
-6| | | | | | | | |
-5| | | | | | | | |
+Movement: [Nb8-c6] Black moves Knight at b8 to c6.
+8|r| |b|q| | |n|r|
+7|p|p|p|Q|k|p|p|p|
+6| | |n| | | | | |
+5|P| | | |P| | | |
 4| | | | | | | | |
-3|P| | | | |N|b| |
-2| |P|P|P|P| | | |
-1|R|N|B|Q|K|B| |R|
+3|b| | | | | | | |
+2| |P|P| |P|P|P|P|
+1|R|N|B| |K|B|N|R|
   A B C D E F G H 
-Error: Skipping movement [h7xh6] You are attempting to capture a square that doesn't have a player on it.
-8|r|n|b| |k| |n|r|
-7|p|p|p| | |p|p|p|
-6| | | | | | | | |
-5| | | | | | | | |
+Movement: [Bc1-h6] White moves Bishop at c1 to h6.
+8|r| |b|q| | |n|r|
+7|p|p|p|Q|k|p|p|p|
+6| | |n| | | | |B|
+5|P| | | |P| | | |
 4| | | | | | | | |
-3|P| | | | |N|b| |
-2| |P|P|P|P| | | |
-1|R|N|B|Q|K|B| |R|
+3|b| | | | | | | |
+2| |P|P| |P|P|P|P|
+1|R|N| | |K|B|N|R|
+  A B C D E F G H 
+Movement: [g7xh6] Black moves Pawn at g7 to h6. They capture a piece. 
+8|r| |b|q| | |n|r|
+7|p|p|p|Q|k|p| |p|
+6| | |n| | | | |p|
+5|P| | | |P| | | |
+4| | | | | | | | |
+3|b| | | | | | | |
+2| |P|P| |P|P|P|P|
+1|R|N| | |K|B|N|R|
+  A B C D E F G H 
+Movement: [Nb1-c3] White moves Knight at b1 to c3.
+8|r| |b|q| | |n|r|
+7|p|p|p|Q|k|p| |p|
+6| | |n| | | | |p|
+5|P| | | |P| | | |
+4| | | | | | | | |
+3|b| |N| | | | | |
+2| |P|P| |P|P|P|P|
+1|R| | | |K|B|N|R|
+  A B C D E F G H 
+Movement: [Ke7-f6] Black moves King at e7 to f6.
+8|r| |b|q| | |n|r|
+7|p|p|p|Q| |p| |p|
+6| | |n| | |k| |p|
+5|P| | | |P| | | |
+4| | | | | | | | |
+3|b| |N| | | | | |
+2| |P|P| |P|P|P|P|
+1|R| | | |K|B|N|R|
+  A B C D E F G H 
+Movement: [O-O-O] White castles Queen side.
+Movement: [Kf6xe5] Black moves King at f6 to e5. They capture a piece. 
+8|r| |b|q| | |n|r|
+7|p|p|p|Q| |p| |p|
+6| | |n| | | | |p|
+5|P| | | |k| | | |
+4| | | | | | | | |
+3|b| |N| | | | | |
+2| |P|P|K|R|P|P|P|
+1| | | | | |B|N|R|
   A B C D E F G H 
 Process: Closing Files.

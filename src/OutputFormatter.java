@@ -111,6 +111,8 @@ public class OutputFormatter {
 			}
 		} else if (!board.isOccupied(position2) && board.isCapture(placement)) {
 			invalid += "You are attempting to capture a square that doesn't have a player on it.";
+		}else{
+			invalid += "The " + board.getPiece(position1).getType().toString().toLowerCase() + " cannot make that movement.";
 		}
 		return invalid;
 	}
