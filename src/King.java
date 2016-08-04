@@ -21,9 +21,9 @@ public class King extends Piece {
 	public Position getQueenSide() {
 		Position location;
 		if (this.isWhite()) {
-			location = new Position(1, 3);
+			location = new Position(0, 2);
 		} else {
-			location = new Position(8, 3);
+			location = new Position(7, 2);
 		}
 		return location;
 	}
@@ -31,9 +31,9 @@ public class King extends Piece {
 	public Position getKingSide() {
 		Position location;
 		if (this.isWhite()) {
-			location = new Position(1, 7);
+			location = new Position(0, 6);
 		} else {
-			location = new Position(8, 7);
+			location = new Position(7, 6);
 		}
 		return location;
 	}

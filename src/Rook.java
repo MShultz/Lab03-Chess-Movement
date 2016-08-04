@@ -9,9 +9,9 @@ public class Rook extends Piece {
 	public Position getQueenSide() {
 		Position location;
 		if (isWhite()) {
-			location = new Position(1, 4);
+			location = new Position(0, 3);
 		} else {
-			location = new Position(8, 4);
+			location = new Position(7, 3);
 		}
 		return location;
 	}
@@ -19,9 +19,9 @@ public class Rook extends Piece {
 	public Position getKingSide() {
 		Position location;
 		if (isWhite()) {
-			location = new Position(1, 6);
+			location = new Position(0, 5);
 		} else {
-			location = new Position(8, 6);
+			location = new Position(0, 5);
 		}
 		return location;
 	}
